@@ -1,67 +1,314 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ERPXPERT Technologies</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ERPXPERT TECHNOLOGIES — Acumatica Service Partner, India</title>
+  <meta name="description" content="ERPXPERT TECHNOLOGIES — Acumatica implementation, customization, integrations, training and support in India." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#0f6cff;
+      --accent:#0e5ecf;
+      --muted:#6b7280;
+      --bg:#f7f9fc;
+      --card:#ffffff;
+      --radius:14px;
+      --max-width:1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:#042038;line-height:1.45}
+    .container{max-width:var(--max-width);margin:0 auto;padding:32px}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--accent));display:grid;place-items:center;color:#fff;font-weight:800}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .cta{background:var(--brand);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:28px 0}
+    .hero h1{font-size:2.1rem;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 20px}
+    .features{display:flex;gap:12px;flex-wrap:wrap}
+    .feature{background:var(--card);padding:12px;border-radius:12px;box-shadow:0 6px 22px rgba(12,36,74,0.06);min-width:160px}
+
+    .hero-card{background:linear-gradient(180deg,rgba(15,108,255,0.06),rgba(15,108,255,0.02));border-radius:14px;padding:22px}
+    .stat{display:flex;align-items:center;gap:12px}
+    .stat strong{font-size:1.4rem}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
+    .service{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(10,20,40,0.04)}
+    .service h3{margin:6px 0}
+    .service p{color:var(--muted);font-size:0.95rem}
+
+    /* Editions */
+    .editions{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
+    .edition{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(10,20,40,0.04)}
+    .edition h3{margin:6px 0;color:var(--brand)}
+    .edition p{color:var(--muted);font-size:0.95rem}
+
+    /* Case studies */
+    .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:28px 0}
+    .case{background:var(--card);padding:16px;border-radius:12px}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 420px;gap:24px;margin:28px 0}
+    form{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 22px rgba(12,36,74,0.06)}
+    label{display:block;font-size:0.85rem;margin-bottom:6px}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef9;font-size:0.95rem}
+    button{background:var(--brand);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:700}
+
+    /* Footer */
+    footer{margin-top:36px;padding:32px 0;border-top:1px solid #eef3fb;color:var(--muted)}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+
+    /* Utilities */
+    .pill{display:inline-block;padding:6px 10px;background:#eef6ff;color:var(--accent);border-radius:999px;font-weight:700}
+    .muted{color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero,.contact{grid-template-columns:1fr}
+      .services,.editions{grid-template-columns:1fr 1fr}
+      .case-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .services,.editions{grid-template-columns:1fr}
+      header{padding:12px 0}
+      .container{padding:16px}
+      .logo{width:44px;height:44px}
+      .hero h1{font-size:1.5rem}
+    }
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-icon {
+  width: 35px;
+  height: 35px;
+  margin-top: 12px;
+}
+
+  </style>
 </head>
 <body>
+  <div class="container">
     <header>
-        <div class="container">
-            <img src="https://i.ibb.co/khD5QqV/Untitled-1-page-0001.jpg" alt="ERPXPERT Technologies Logo" class="logo">
-            <nav>
-                <ul>
-                    <li><a href="demo.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li> <!-- Correct link to About Us page -->
-                    <li><a href="services.html">Services</a></li> <!-- Link to Services Page -->
-                    <li><a href="https://srinivaskotatech.blogspot.com/">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </nav>
-            <a href="#register" class="btn-register">Register</a>
-        </div>
+      <div class="brand">
+         <div style="font-weight:800"><img src="Logo.png" /></div>    
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Get a Free Consultation</a>
+      </nav>
     </header>
 
-    <section id="hero">
-        <div class="hero-container">
-            <div class="hero-image">
-                <img src="https://as2.ftcdn.net/v2/jpg/07/04/93/27/1000_F_704932754_CruNBXJSFElZhRmKyjQSgrIWxPr7an2B.jpg" alt="ERPXPERT Technologies">
-            </div>
-            <div class="hero-text">
-                <h1>ERPXPERT Technologies</h1>
-                <ul class="hero-features">
-                    <li><i class="fas fa-check-circle"></i> Feature 1</li>
-                    <li><i class="fas fa-check-circle"></i> Feature 2</li>
-                    <li><i class="fas fa-check-circle"></i> Feature 3</li>
-                    <li><i class="fas fa-check-circle"></i> Feature 4</li>
-                </ul>
-                <a href="#contact" class="btn-cta">Get Started</a>
-            </div>
+   <section id="about">
+      <h2 style="margin:6px 0">About ERPXPERT TECHNOLOGIES</h2>
+      <p class="muted">ERPXPERT TECHNOLOGIES is a specialised ERP consultancy focused on Acumatica implementations and customizations across India. We combine deep technical skills with practical business process understanding so projects deliver measurable outcomes.</p>
+      <div style="display:flex;gap:12px;align-items:center;margin-top:16px">
+        <div style="flex:1;min-width:200px;background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(8,20,40,0.04)">
+          <strong>Our approach</strong>
+          <div class="muted" style="margin-top:8px">Discovery → Blueprint → Implement → Stabilize → Improve</div>
         </div>
+        <div style="flex:1;min-width:200px;background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(8,20,40,0.04)">
+          <strong>Technologies</strong>
+          <div class="muted" style="margin-top:8px">Acumatica, .NET/C#, REST APIs, SQL Server, Power BI, Modern UI, Node js, TypeScript, .NET Core</div>
+        </div>
+      </div>
     </section>
-    <section id="video">
-    <div class="container">
-        <h2>Watch Our Video</h2>
-        <div class="video-container">
-            <!-- Embedding the YouTube video -->
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/fk6Kv7UrFQA" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</section>
 
-<section id="clients">
-    <div class="container">
-        <h2>Our Clients</h2>
-        <div class="client-gallery">
-            <!-- Adding client images -->
-            <img src="https://img.freepik.com/free-vector/flat-customer-service-week-illustration_23-2149644201.jpg?w=740&t=st=1716802270~exp=1716802870~hmac=dbcdc7b68d1f8abbed54d6143952d1045937eeff89d7c06bfe9205c4c670874e" alt="Customer Service Image">
-            <img src="https://cdn.vectorstock.com/i/1000x1000/18/93/bank-sevices-icon-black-sign-with-editable-vector-35241893.webp" alt="Bank Service Image">
-            <img src="https://img.freepik.com/premium-photo/manager-welcomes-customers-lobby-bank_160672-8470.jpg?w=740" alt="Client Image">
+    <section id="services">
+      <h2 style="margin:6px 0">Our Services</h2>
+      <p class="muted">Specialized Acumatica services for implementation, continuous improvement and integrations.</p>
+      <div class="services" role="list">
+        <article class="service" role="listitem">
+          <img src="ERP Implementation Services.png" alt="Implementation" style="width:100%;border-radius:10px;height:160px;object-fit:cover;margin-bottom:10px;">
+          <h3>Acumatica Implementation</h3>
+          <p>Rapid-fit project plans, requirement workshops, data migration, and go-live support tailored to manufacturing, distribution and service companies.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <img src="AcumCustImg.png" alt="Customization" style="width:100%;border-radius:10px;height:160px;object-fit:cover;margin-bottom:10px;">
+          <h3>Customization & Extensions</h3>
+          <p>Custom screens, graphs, business logic and automation using Acumatica customization framework and C#/.NET.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <img src="API.jpg" alt="Integration" style="width:100%;border-radius:10px;height:160px;object-fit:cover;margin-bottom:10px;">
+          <h3>API Integrations</h3>
+          <p>Integrate Acumatica with e-commerce, 3PLs, payroll, and BI tools using robust REST APIs and middleware patterns.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=800&q=60" alt="Reporting" style="width:100%;border-radius:10px;height:160px;object-fit:cover;margin-bottom:10px;">
+          <h3>Reporting & Analytics</h3>
+          <p>Power BI, SSRS and embedded dashboards to track KPIs, inventory, margins and cash-flow in real time.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <img src="Service.jpg" alt="Support" style="width:100%;border-radius:10px;height:160px;object-fit:cover;margin-bottom:10px;">
+          <h3>Support & Managed Services</h3>
+          <p>Monthly support packs, SLA-based break-fix, and regular health-checks to keep your ERP running smoothly.</p>
+        </article>
+
+        <article class="service" role="listitem">
+          <img src="ERP Training & Education.png" alt="Training" style="width:100%;border-radius:10px;height:145px;object-fit:cover;margin-bottom:10px;">
+          <h3>Training & Enablement</h3>
+          <p>Role-based and admin training to help users get productive fast. Customized manuals and recording sessions included.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="editions">
+      <h2 style="margin:6px 0">Acumatica Editions</h2>
+      <p class="muted">Acumatica offers tailored editions for different business needs. ERPXPERT TECHNOLOGIES helps you choose the right one for your organization.</p>
+      <div class="editions">
+        <article class="edition">
+          <h3>Acumatica Manufacturing</h3>
+          <p>Comprehensive suite for discrete and process manufacturers including BOM, MRP, production scheduling and costing.</p>
+        </article>
+        <article class="edition">
+          <h3>Acumatica Distribution</h3>
+          <p>Advanced inventory, order management, purchasing, and warehouse automation designed for wholesale and retail distributors.</p>
+        </article>
+        <article class="edition">
+          <h3>Acumatica Construction</h3>
+          <p>Project accounting, subcontract management, compliance tracking and mobile field service for construction firms.</p>
+        </article>
+        <article class="edition">
+          <h3>Acumatica Retail-Commerce</h3>
+          <p>Unified platform connecting POS, web stores and fulfillment for seamless omnichannel operations.</p>
+        </article>
+        <article class="edition">
+          <h3>Acumatica Services</h3>
+          <p>For professional service organizations — automate billing, time tracking, resource scheduling and customer engagement.</p>
+        </article>
+        <article class="edition">
+          <h3>Acumatica General Business</h3>
+          <p>Core financials and CRM capabilities for any business that needs agility and real-time insights.</p>
+        </article>
+      </div>
+    </section>
+
+    
+
+    <section id="contact">
+      <h2 style="margin:6px 0">Contact & Request Demo</h2>
+      <div class="contact">
+        <form id="contactForm" onsubmit="return submitForm(event)">
+          <label for="name">Full name</label>
+          <input id="name" name="name" required placeholder="Your full name" />
+
+          <label for="company" style="margin-top:10px">Company</label>
+          <input id="company" name="company" placeholder="Company name" />
+
+          <label for="email" style="margin-top:10px">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@company.com" />
+
+          <label for="service" style="margin-top:10px">Interested in</label>
+          <select id="service" name="service">
+            <option>Implementation</option>
+            <option>Customization</option>
+            <option>Integration</option>
+            <option>Support</option>
+            <option>Training</option>
+          </select>
+
+          <label for="message" style="margin-top:10px">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Tell us about your challenge"></textarea>
+
+          <div style="display:flex;gap:10px;margin-top:12px">
+            <button type="submit">Send request</button>
+            <a href="mailto:info@erpxperttech.com" style="align-self:center;color:var(--muted);text-decoration:none">Or email: info@erpxperttech.com</a>
+          </div>
+          <div id="formMsg" style="margin-top:8px;color:var(--muted);font-size:0.95rem"></div>
+        </form>
+
+        <aside style="min-height:220px">
+          <div style="background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(8,20,40,0.04)">
+            <h4>Office (India)</h4>
+            <div class="muted">Murali Nagar, Visakhapatnam<br/>Phone: +91 9986428996<br/>Email: info@erpxperttech.com</div>
+            <div style="height:12px"></div>
+            <h4>Working Hours</h4>
+            <div class="muted">Mon–Fri: 9:30 AM – 6:30 PM IST</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+<!-- WhatsApp Floating Button -->
+<a
+  href="https://wa.me/919986428996?text=Hello%20ERPXPERT%20TECHNOLOGIES!%20I%20am%20interested%20in%20your%20Acumatica%20services."
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Chat on WhatsApp"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp Chat"
+    class="whatsapp-icon"
+  />
+</a>
+
+
+    <footer>
+      <div class="grid-3">
+        <div>
+          <strong>ERPXPERT TECHNOLOGIES</strong>
+          <div class="muted" style="margin-top:6px">Acumatica service partner. Implementation | Customization | Support</div>
         </div>
-    </div>
-</section>
-    <script src="scripts.js"></script>
+        <div>
+          <strong>Quick Links</strong>
+          <div class="muted" style="margin-top:6px">Services · Contact</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:18px;color:var(--muted);font-size:0.9rem">© 2023–2025 ERPXPERT TECHNOLOGIES — All rights reserved</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year')?.remove();
+
+    function submitForm(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+      const formMsg = document.getElementById('formMsg');
+
+      if(!name || !email){
+        formMsg.textContent = 'Please enter name and a valid email.';
+        return false;
+      }
+
+      const subject = encodeURIComponent('ERPXPERT — Demo request (' + service + ') from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nCompany: ' + document.getElementById('company').value + '\nEmail: ' + email + '\nService: ' + service + '\n\nMessage:\
+
+  </script>
 </body>
 </html>
