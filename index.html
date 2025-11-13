@@ -46,6 +46,18 @@
     .service{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(10,20,40,0.04)}
     .service h3{margin:6px 0}
     .service p{color:var(--muted);font-size:0.95rem}
+  /* Center the last service card when odd number of items */
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  justify-items: stretch;
+}
+
+.services > article:last-child:nth-child(odd) {
+  grid-column: 2; /* Centers the last card in the middle column */
+}
+
 
     /* Editions */
     .editions{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0}
@@ -158,6 +170,12 @@
           <p>Custom screens, graphs, business logic and automation using Acumatica customization framework and C#/.NET.</p>
         </article>
 
+      <article class="service" role="listitem">
+      <img src="UI.jpg" alt="Modern UI" style="width:100%;border-radius:10px;height:160px;object-fit:cover;margin-bottom:10px;">
+      <h3>Acumatica Modern UI Development</h3>
+      <p>Design and build modern Acumatica screens using the 25R2 Modern UI framework — HTML templates, TypeScript extensions, and client controls for enhanced UX.</p>
+    </article>
+
         <article class="service" role="listitem">
           <img src="API.jpg" alt="Integration" style="width:100%;border-radius:10px;height:160px;object-fit:cover;margin-bottom:10px;">
           <h3>API Integrations</h3>
@@ -252,7 +270,7 @@
         <aside style="min-height:220px">
           <div style="background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(8,20,40,0.04)">
             <h4>Office (India)</h4>
-            <div class="muted">Murali Nagar, Visakhapatnam<br/>Phone: +91 9986428996<br/>Email: info@erpxperttech.com</div>
+            <div class="muted">Murali Nagar, Visakhapatnam<br/>Phone: +91 8142624421<br/>Email: info@erpxperttech.com</div>
             <div style="height:12px"></div>
             <h4>Working Hours</h4>
             <div class="muted">Mon–Fri: 9:30 AM – 6:30 PM IST</div>
@@ -262,7 +280,7 @@
     </section>
 <!-- WhatsApp Floating Button -->
 <a
-  href="https://wa.me/919986428996?text=Hello%20ERPXPERT%20TECHNOLOGIES!%20I%20am%20interested%20in%20your%20Acumatica%20services."
+  href="https://wa.me/918142624421?text=Hello%20ERPXPERT%20TECHNOLOGIES!%20I%20am%20interested%20in%20your%20Acumatica%20services."
   class="whatsapp-float"
   target="_blank"
   aria-label="Chat on WhatsApp"
